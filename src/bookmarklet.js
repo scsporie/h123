@@ -20,6 +20,7 @@ var iframe = document.createElement('IFRAME');
 iframe.style.width = '100%';
 iframe.style.height = '100%';
 iframe.style.borderWidth = '0';
+iframe.setAttribute('title', 'H123');
 
 var outline = getOutline();
 var doc;
@@ -144,15 +145,16 @@ function outlineToHTML(list) {
   var html = '';
 
   for (var i = 0; i < list.length; i++) {
-    var item = list[i], el = item.el;
+    var item = list[i], el = item.el, itemText = textContent(el).trim();
     html += '<li class="'
     html += (item.wrong ? 'wrong-level' : 'correct-level')
     html += (item.visible ? '' : ' hidden')
     html += (item.visuallyhidden ? ' visuallyhidden' : '')
+    html += (itemText ? '' : ' empty')
     html += '" style="margin-left: ' + (item.level) + 'em;">';
     html += '<a href="#' + i + '" target="_top">';
     html += '<span class="level" data-level="' + item.level + '"></span> ';
-    html += '<span class="text">' + htmlEntities(textContent(el).replace(/\s+/g, ' ')) + '</span>';
+    html += '<span class="text">' + (itemText ? htmlEntities(itemText) : '[empty or non-text heading]') + '</span>';
     html += '</a>';
     html += '</li>';
   }

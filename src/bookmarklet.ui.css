@@ -65,6 +65,9 @@ li.hidden {
   text-decoration: line-through;
   opacity: 0.5;
 }
+li.empty {
+  font-style: italic;
+}
 .result:not(.show-hidden) li.hidden {
   display: none;
 }
