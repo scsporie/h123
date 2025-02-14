@@ -53,12 +53,12 @@
 <h2>What does this bookmarklet do?</h2>
 <ul>
 <li>Adds an iframe (titled &quot;h123&quot;) in the top right corner listing the headings present on a page. Includes the level and text for each heading.<ul>
-<li>If the text for a heading could not be determined, &quot;[empty or non-text content]&quot; will be displayed instead.</li>
+<li>If the text for a heading could not be determined, &quot;&#9888; empty or non-text content&quot; will be displayed instead.</li>
 </ul>
 </li>
 <li>Provides a few options for inspecting headings:<ul>
 <li>Show hidden: Adds any hidden heading elements to the list. Note that hidden elements are not accessible to assistive technology and would not be announced by screen readers.</li>
-<li>Mark visually hidden: Indicates which headings in the list have been visually hidden, which is often done to create headings targeted only at screen reader users.</li>
+<li>Show tags: Shows text tags that identify different heading states: hidden, visually hidden, and incorrect level.</li>
 <li>Hover-highlight: Adds a highlight to headings when you hover over the heading with your cursor.</li>
 </ul>
 </li>
@@ -68,10 +68,11 @@
 <ul>
 <li>The iframe that displays the bookmarklet content has been given a title of &quot;h123&quot;.</li>
 <li>H123 has also been added as a level 1 heading for the bookmarklet content.</li>
-<li>Added some handling for empty or non-text content headings. In these cases, the heading outline will show &quot;[empty or non-text content]&quot; for these headings.<ul>
+<li>Added some handling for empty or non-text content headings. In these cases, the heading outline will show &quot;&#9888; empty or non-text content&quot; for these headings.<ul>
 <li>&quot;non-text&quot; headings would include headings that contain images with alt text.</li>
 </ul>
 </li>
+<li>Added text versions of the different states indicated by visual changes.</li>
 </ul>
 
 </body>
