@@ -1,75 +1,35 @@
-# h①②③ – Accessibility HTML5 Outliner
+# h①②③ – Accessibility HTML5 Outliner (forked version)
 
-v1.1
+v1.2
 
-See the headings like a screenreader!
+Use this bookmarklet to quickly inspect page headings. This version is a fork of the original [H123 Bookmarklet](https://hinderlingvolkart.github.io/h123/)([Github](https://github.com/hinderlingvolkart/h123)).
 
 ## Add to your bookmarks
 
-[Show Headings][1]
+Install by saving one of the following links as a bookmark. The only difference between each option is the link text. 
 
-[h①②③][1]
-[H1️⃣2️⃣3️⃣][1]
-[h❶❷❸][1]
+* [Show Headings][1]
+* [h①②③][1]
+* [H1️⃣2️⃣3️⃣][1]
+* [h❶❷❸][1]
 
-## Why you should
+## What does this bookmarklet do?
 
-If you are a web developer, you might have heard of sectioning content. Those were introduced with article, nav, section and such to provide a scope for headings and footers. They allowed to semantically structure an HTML document.
+* Adds an iframe (titled "h123") in the top right corner listing the headings present on a page. Includes the level and text for each heading.
+  * If the text for a heading could not be determined, "&#9888; empty or non-text content" will be displayed instead.
+* Provides a few options for inspecting headings:
+  * Show hidden: Adds any hidden heading elements to the list. Note that hidden elements are not accessible to assistive technology and would not be announced by screen readers.
+  * Show tags: Shows text tags that identify different heading states: hidden, visually hidden, and incorrect level.
+  * Hover-highlight: Adds a highlight to headings when you hover over the heading with your cursor.
 
-    <h1>I am a document</h1>
-    <section>
-      <h1>I am a section</h1>
-      <p>A great section really!</p>
-      <aside>
-        <h1>Some advertising in between</h1>
-        <a href="https://www.chocoloco.com">
-          <img
-            src="advertising-animated.gif"
-            alt="Some fancy sweet chocolate drink"
-            >
-        </a>
-      </aside>
-      <p>Still belong to the section</p>
-    </section>
-    <section>
-      <h1>Another section</h1>
-      <p>And more content for the people</p>
-    </section>
+## Changes
 
-The main reason web developers embraced this change was a very practical one: it solved an annoying issue with the heading hierarchy. You'd always had to number the headings h1, h2 etc. imagine a teaser component. Now let's place this teaser into the body, but also into an accordeon. The heading now has to change depending on its place, because the accordion is some levels deeper. This is a nightmare for modular system. So that's why devs loved those h1 in sections.
+As mentioned, this bookmarklet is a fork of https://github.com/hinderlingvolkart/h123. The following changes have been implemented:
 
-But reality turned out to be different. While devs embraced the news, browsers and screenreaders (and most probably SEOs) did not: they sticked to the yet existing model. A document full of h1 (well structured within sectioning elements) is total rubbish for a blind user, denying him or her the most important navigational help. The above example has this structure:
-
-1. I am a document
-2. I am a section
-3. Some advertising in between
-4. Another section
-
-The new HTML 5.2 spec takes a step back and now recommends to always set your h1, h2, h3 etc. according the actual level. For accessibility reasons though, you should rely on implicit sectioning at all: forget about sections and you're all set with screenreaders (and probably search engines too).
-
-    <h1>I am a document</h1>
-    <section>
-      <h2>I am a section</h2>
-      <p>A great section really!</p>
-      <aside>
-        <h2>Some advertising in between</h2>
-        <a href="https://www.chocoloco.com">
-          <img
-            src="advertising-animated.gif"
-            alt="Some fancy sweet chocolate drink"
-            >
-        </a>
-      </aside>
-      <h2>I am a section (continue)</h2>
-      <p>Still belong to the section</p>
-    </section>
-    <section>
-      <h2>Another section</hh21>
-      <p>And more content for the people</p>
-    </section>
-
-Thing is that many people don't know. Some outliners show the structure of the whole document, including hidden parts. But guess what, screenreaders only read what's visible. Yeah, funny thing, right. If you think about it, it makes just sense though. So this outliner will only consider headings that are actually visible, at least visible to the screenreader. (because you can visually hide elements that stay theoretically visible).
-
-Our bookmarklet to the rescue!! :-)
+* The iframe that displays the bookmarklet content has been given a title of "h123".
+* H123 has also been added as a level 1 heading for the bookmarklet content.
+* Added some handling for empty or non-text content headings. In these cases, the heading outline will show "&#9888; empty or non-text content" for these headings.
+  * "non-text" headings would include headings that contain images with alt text.
+* Added text versions of the different states indicated by visual changes.
 
 [1]: {{bookmarklet}}

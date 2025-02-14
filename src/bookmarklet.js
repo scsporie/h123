@@ -61,7 +61,7 @@ iframe.onload = function () {
   }
 
   switcher('o-hidden', 'show-hidden');
-  switcher('o-visuallyhidden', 'mark-visuallyhidden');
+  switcher('o-tags', 'show-tags')
   handleHoverHighlight(doc.getElementById('o-highlight'));
 
   updateHeight();
@@ -154,7 +154,10 @@ function outlineToHTML(list) {
     html += '" style="margin-left: ' + (item.level) + 'em;">';
     html += '<a href="#' + i + '" target="_top">';
     html += '<span class="level" data-level="' + item.level + '"></span> ';
-    html += '<span class="text">' + (itemText ? htmlEntities(itemText) : '[empty or non-text heading]') + '</span>';
+    html += '<span class="text">' + (itemText ? htmlEntities(itemText) : '<span class="tag empty">&#9888; empty or non-text heading</span>') + '</span>';
+    if(item.wrong) { html += ' <span class="tag wrong-level">&#9888; incorrect level</span>' }
+    if(!item.visible) { html += ' <span class="tag">&#9888; hidden</span>' }
+    if(item.visuallyhidden) { html += ' <span class="tag visuallyhidden">&#9888; visually hidden</span>' }
     html += '</a>';
     html += '</li>';
   }
